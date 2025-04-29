@@ -3,8 +3,7 @@ import { AuthState } from "@/stores/interface";
 import { getAuthButtonListApi, getAuthMenuListApi } from "@/api/modules/login";
 import { getFlatMenuList, getShowMenuList, getAllBreadcrumbList } from "@/utils";
 
-export const useAuthStore = defineStore({
-  id: "admin-auth",
+export const useAuthStore = defineStore("admin-auth", {
   state: (): AuthState => ({
     // 按钮权限列表
     authButtonList: {},

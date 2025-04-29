@@ -33,7 +33,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@import "@/styles/var.scss";`
+          additionalData: `@use "@/styles/var.scss";`
         }
       }
     },
@@ -46,9 +46,6 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       proxy: createProxy(viteEnv.VITE_PROXY)
     },
     plugins: createVitePlugins(viteEnv),
-    esbuild: {
-      pure: viteEnv.VITE_DROP_CONSOLE ? ["console.log", "debugger"] : []
-    },
     build: {
       outDir: "dist",
       minify: "esbuild",
